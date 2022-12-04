@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/data/utillity.dart';
 import 'package:todo/write.dart';
 
 import 'data/todo.dart';
@@ -75,7 +76,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 memo: "",
                 done: 0,
                 category: "",
-              ))));
+                date: Utillity.getFormatTime(DateTime.now())
+              ),)));
         },
       ),
       body: ListView.builder(

@@ -1,4 +1,4 @@
-class Uillity{
+class Utillity{
   static int getFormatTime(DateTime date){
     return int.parse("${date.year}${makeTwoDigit(date.month)}${makeTwoDigit(date.day)}");
   }
