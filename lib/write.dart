@@ -17,6 +17,7 @@ class TodoWritePage extends StatefulWidget{
 class _TodoWritePageState extends State<TodoWritePage>{
 
   TextEditingController nameController = TextEditingController();
+  TextEditingController memoController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,8 @@ class _TodoWritePageState extends State<TodoWritePage>{
           itemBuilder: (ctx, idx){
             if(idx == 0){
               return Container(
-                child: Text("제목"),
+                child: Text("제목", style: TextStyle(fontSize: 20),),
+                margin: EdgeInsets.symmetric(vertical:12, horizontal: 16),
               );
             }else if(idx == 1){
               return Container(
@@ -46,7 +48,38 @@ class _TodoWritePageState extends State<TodoWritePage>{
             }else if(idx == 2){
               return Container(
                 child: Row(
-                  
+                  children: [
+                    Text("색상"),
+                    Container(
+                      width: 10,
+                      height: 10,
+                      color: Color(widget.todo.color),
+                    )
+                  ],
+                ),
+              );
+            }else if(idx == 3){
+              return Container(
+                child: Row(
+                  children: [
+                    Text("카테고리"),
+                    Text(widget.todo.category)
+                  ],
+                ),
+              );
+            }else if(idx == 4){
+              return Container(
+                child: Text("메모"),
+              );
+            }else if(idx == 5){
+              return Container(
+                child: TextField(
+                  controller: memoController,
+                  maxLines: 10,
+                  minLines: 10,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black))
+                  ),
                 ),
               );
             }
